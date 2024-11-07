@@ -1,0 +1,17 @@
+<section id="contact">
+    <h2>Contactez-nous</h2>
+    <div class="contact-form">
+        <form method="POST" action="send_contact.php">
+            <input type="text" name="prenom" placeholder="Prénom" required>
+            <input type="text" name="nom" placeholder="Nom" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="contact_message" rows="5" placeholder="Écrivez votre message ici..." required></textarea><br><br>
+            <button type="submit">Envoyer</button>
+        </form>
+        <?php if (isset($contactSuccess)): ?>
+            <p class="success-message"><?php echo $contactSuccess; ?></p>
+        <?php elseif (isset($contactError)): ?>
+            <p class="error-message"><?php echo $contactError; ?></p>
+        <?php endif; ?>
+    </div>
+</section>

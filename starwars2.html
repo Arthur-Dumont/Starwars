@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio de Lavamax</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Menu de navigation -->
+    <nav>
+        <a href="starwars.html?section=home">Accueil</a>
+        <a href="starwars.html?section=biographie">Biographie</a>
+        <a href="starwars2.html?section=video">Vidéos</a>
+        <a href="starwars.html?section=contact">Contact</a>
+        <?php if (isset($_SESSION['user'])): ?>
+            <a href="logout.php">Se déconnecter</a>
+        <?php else: ?>
+            <a href="starwars.html?section=connexion">Connexion</a>
+        <?php endif; ?>
+    </nav>
+
+    <!-- Afficher la section selon le paramètre "section" de l'URL -->
+    <?php
+        $section = isset($_GET['section']) ? $_GET['section'] : 'home';
+        if ($section === 'home') {
+            include 'home.html'; // Fichier home.html
+        } elseif ($section === 'biographie') {
+            include 'biographie.html'; // Fichier biographie.html
+        } elseif ($section === 'videos') {
+            include 'videos.html'; // Fichier videos.html
+        } elseif ($section === 'contact') {
+            include 'contact.html'; // Fichier contact.html
+        } elseif ($section === 'connexion') {
+            include 'connexion.html'; // Fichier connexion.html
+        }
+    ?>
+
+    <script src="script.js"></script>
+</body>
+</html>
